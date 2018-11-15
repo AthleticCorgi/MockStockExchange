@@ -10,23 +10,24 @@ import orderSpecs.Side;
 import orderTypes.RestingOrder;
 import orderTypes.SweepingOrder;
 
-// this class is for bidBook and offerBook.
-// for each given market there is a bidBook and offerBook.
-// bidBook should be in descending order.
-// offerBook should be in ascending order.
-// since these two books are ordered, TreeMap is a reasonable structure.
-// (Price as key, PriceLevel as value.)
-// for each given price there should be a List of orders.
-// (this list is contained in PriceLevel object.)
-// when we sweep exchange with a sweepingOrder,
-// if a price is acceptable for the sweeping order,
-// we will traverse all the orders given that price.
-// therefore we do not need random access when we sweep,
-// a LinkedList to store all the orders in a PriceLevel object is 
-// a good choice.
-// comment from 2018: pricelevel is used to store resting orders, whichever
-// order comes first will be stored first, so pricelevel is order by time.
-
+/*
+* this class is for bidBook and offerBook.
+* for each given market there is a bidBook and offerBook.
+* bidBook should be in descending order.
+* offerBook should be in ascending order.
+* since these two books are ordered, TreeMap is a reasonable structure.
+* (Price as key, PriceLevel as value.)
+* for each given price there should be a List of orders.
+* (this list is contained in PriceLevel object.)
+* when we sweep exchange with a sweepingOrder,
+* if a price is acceptable for the sweeping order,
+* we will traverse all the orders given that price.
+* therefore we do not need random access when we sweep,
+* a LinkedList to store all the orders in a PriceLevel object is 
+* a good choice.
+* comment from 2018: pricelevel is used to store resting orders, whichever
+* order comes first will be stored first, so pricelevel is order by time.
+*/
 public class Book {
 	
 	private TreeMap<Price, PriceLevel> _priceLevels;
@@ -38,9 +39,9 @@ public class Book {
 		_market = market;
 		_side = side;
 		
-		// different side has different comparator,
-		// since bidBook should be in descending order,
-		// and offerBook should be in ascending order.
+		/*different side has different comparator,
+		since bidBook should be in descending order,
+		and offerBook should be in ascending order.*/
 		_priceLevels = new TreeMap<Price,PriceLevel>( side.getComparator() );
 		}
 	
