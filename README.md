@@ -1,4 +1,4 @@
-# SampleCode1
+# MockStockExchange
 The main objective of this project is nested data structures. 
 
 HashMap: the first two data structures are two HashMaps, which are stored in exchange object. They store all the orders and markets using ClientOrderId and MarketId object as keys. Write hashCode for those two classes. Since we don't care about ordering when store all the orders and markets, then HashMap is a pretty good choice. And since ClientOrderId and MarketId store string as instance, we are actually using hashCode for String class, which is very efficient.
